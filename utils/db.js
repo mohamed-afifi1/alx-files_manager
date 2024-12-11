@@ -30,11 +30,11 @@ class DBClient {
     return this.files.countDocuments();
   }
 
-  async users() {
+  async usersCollection() {
     return this.db.collection('users');
   }
 
-  async files() {
+  async filesConllection() {
     return this.db.collection('files');
   }
 }
