@@ -14,7 +14,6 @@ export default class UsersController {
       return;
     }
     const user = await (await dbClient.usersCollection()).findOne({ email });
-
     if (user) {
       res.status(400).json({ error: 'Already exist' });
       return;
