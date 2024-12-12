@@ -20,11 +20,14 @@ function controllerRouting(app) {
   router.get('/connect', (req, res) => {
     AuthController.getConnect(req, res);
   });
-  router.get('disconnect', (req, res) => {
+  router.get('/disconnect', (req, res) => {
     AuthController.getDisconnect(req, res);
   });
   router.get('/users/me', (req, res) => {
     usersController.getMe(req, res);
+  });
+  router.post('/files', (req, res) => {
+    FilesController.postUpload(req, res);
   });
 }
 

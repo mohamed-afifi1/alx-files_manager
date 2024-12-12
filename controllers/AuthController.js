@@ -37,7 +37,7 @@ class AuthController {
     const token = uuidv4();
     const tokenKey = `auth_${token}`;
 
-    await redisClient.set(tokenKey, user._id.toString(), 24 * 3600); // 3600 to convert to seconds
+    await redisClient.set(tokenKey, user._id, 24 * 3600); // 3600 to convert to seconds
 
     return res.status(200).send({ token });
   }
@@ -63,7 +63,6 @@ class AuthController {
 
     return res.status(204).send();
   }
-
 }
 
 export default AuthController;

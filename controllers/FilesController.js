@@ -2,19 +2,17 @@ import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
 import { promisify } from 'util';
 import dbClient from '../utils/db';
-import redisClient from '../utils/redis';
 
 const mkdir = promisify(fs.mkdir);
 const writeFile = promisify(fs.writeFile);
 
 class FilesController {
   static async postUpload(req, res) {
-    const token = req.headers['x-token'];
-    if (!token) return res.status(401).json({ error: 'Unauthorized' });
-
-    const userId = await redisClient.get(`auth_${token}`);
-    if (!userId) return res.status(401).json({ error: 'Unauthorized' });
-
+    const token = req.headers['X-Token'];
+    if (!token) {
+        return res.status(401).json({ error: 'Unauthorized' });
+      }
+      const userId = req.user.id;
     const {
       name, type, parentId = 0, isPublic = false, data,
     } = req.body;
