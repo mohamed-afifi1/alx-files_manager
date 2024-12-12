@@ -9,7 +9,7 @@ controllerRouting(app);
 
 const PORT = process.env.PORT || 5000;
 
-// listen to a PORT
+// listen to PORT
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
