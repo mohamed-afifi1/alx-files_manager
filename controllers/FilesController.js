@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable no-unused-vars */
 import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
 import { promisify } from 'util';
